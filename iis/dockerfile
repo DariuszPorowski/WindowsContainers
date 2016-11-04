@@ -1,4 +1,5 @@
 FROM microsoft/windowsservercore
+LABEL Description="IIS" Vendor="Microsoft" Version="10"
 RUN powershell.exe -command Add-WindowsFeature Web-Server
 RUN powershell.exe -command Add-WindowsFeature Web-Asp-Net45
 CMD [ "ping", "localhost", "-t" ]
