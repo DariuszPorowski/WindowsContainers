@@ -1,0 +1,3 @@
+FROM microsoft/windowsservercore
+ADD iis-dsc.ps1 /windows/temp/iis-dsc.ps1
+RUN powershell.exe -executionpolicy bypass c:\windows\temp\iis-dsc.ps1

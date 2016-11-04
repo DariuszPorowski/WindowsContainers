@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "iis-dsc", "iis-dsc\iis-dsc.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
+EndProject
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "iis", "iis\iis.pssproj", "{6FFCC330-C419-475F-A8B1-F27D6BB257BD}"
+EndProject
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "apache-http-php", "apache-http-php\apache-http-php.pssproj", "{E1CC929C-5ECB-42EA-9DAF-3096715CE386}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FFCC330-C419-475F-A8B1-F27D6BB257BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FFCC330-C419-475F-A8B1-F27D6BB257BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FFCC330-C419-475F-A8B1-F27D6BB257BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FFCC330-C419-475F-A8B1-F27D6BB257BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1CC929C-5ECB-42EA-9DAF-3096715CE386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1CC929C-5ECB-42EA-9DAF-3096715CE386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1CC929C-5ECB-42EA-9DAF-3096715CE386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1CC929C-5ECB-42EA-9DAF-3096715CE386}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

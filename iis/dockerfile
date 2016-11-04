@@ -1,0 +1,4 @@
+FROM microsoft/windowsservercore
+RUN powershell.exe -command Add-WindowsFeature Web-Server
+RUN powershell.exe -command Add-WindowsFeature Web-Asp-Net45
+CMD [ "ping", "localhost", "-t" ]
