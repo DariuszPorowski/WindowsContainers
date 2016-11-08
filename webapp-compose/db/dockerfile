@@ -1,0 +1,17 @@
+FROM microsoft/mssql-server-2014-express-windows
+LABEL Description="SQL Server" Vendor="Microsoft" Version="2014"
+
+# SQL environmental variables
+ENV sa_password "Password123"
+ENV attach_dbs "[]"
+
+# Copy SQL scripts for setting up blog database and tables
+COPY . /
+
+WORKDIR /
+
+# Create blog application database and tables
+RUN powershell sqlcmd -S localhost,1433 -i Setup-BlogDatabase.sql
+RUN powershell sqlcmd -S localhost,1433 -i Setup-BlogTables.sql
+
+CMD powershell ./start -sa_password %sa_password% -attach_dbs \"%attach_dbs%\" -Verbose

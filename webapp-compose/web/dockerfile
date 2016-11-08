@@ -1,0 +1,19 @@
+FROM microsoft/windowsservercore
+LABEL Description="BlogEngine.NET on IIS" Vendor1="Microsoft" Version1="10" Vendor2="BlogEngine.NET" Version2="3.3"
+
+# BlogEngine.NET dependencies
+RUN powershell.exe -command Add-WindowsFeature Web-Server,Web-Asp-Net45 -Verbose
+
+# # Extract BlogEngine.NET project files
+COPY BlogEngineNETSrc.zip C:/
+RUN powershell -Command \
+    $ErrorActionPreference = 'Stop'; \
+	Expand-Archive -Path c:\BlogEngineNETSrc.zip -DestinationPath c:\inetpub\wwwroot\blogengine ; \
+	Remove-Item c:\BlogEngineNETSrc.zip -Force
+
+# Configure Web App
+COPY BuildApp.ps1 C:/
+RUN powershell.exe C:\BuildApp.ps1
+
+# Overwrite Web.config file so that web service points to db service
+COPY Web.config C:/inetpub/wwwroot/blogengine
