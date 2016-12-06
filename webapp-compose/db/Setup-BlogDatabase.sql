@@ -1,9 +1,9 @@
 CREATE DATABASE [blogengine_db]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'blogengine_db', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\blogengine_db.mdf' , SIZE = 4096KB , FILEGROWTH = 1024KB )
+( NAME = N'blogengine_db', FILENAME = N'C:\data\blogengine_db.mdf' , SIZE = 4096KB , FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'blogengine_db_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\blogengine_db_log.ldf' , SIZE = 1024KB , FILEGROWTH = 10%)
+( NAME = N'blogengine_db_log', FILENAME = N'C:\data\blogengine_db_log.ldf' , SIZE = 1024KB , FILEGROWTH = 10%)
 GO
 ALTER DATABASE [blogengine_db] SET COMPATIBILITY_LEVEL = 120
 GO

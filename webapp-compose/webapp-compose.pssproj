@@ -31,7 +31,7 @@
     <Folder Include="web\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="db\Initialize-Database.ps1" />
+    <Compile Include="db\start.ps1" />
     <Compile Include="web\BlogEngineNETSrc.zip" />
     <Compile Include="web\BuildApp.ps1" />
   </ItemGroup>

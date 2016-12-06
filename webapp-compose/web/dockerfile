@@ -17,3 +17,5 @@ RUN powershell.exe C:\BuildApp.ps1
 
 # Overwrite Web.config file so that web service points to db service
 COPY Web.config C:/inetpub/wwwroot/blogengine
+
+CMD [ "ping", "localhost", "-t" ]
