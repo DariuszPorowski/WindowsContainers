@@ -1,5 +1,6 @@
-FROM microsoft/mssql-server-2014-express-windows
-LABEL Description="SQL Server" Vendor="Microsoft" Version="2014"
+FROM microsoft/mssql-server-2016-express-windows
+LABEL Description="SQL Server" Vendor="Microsoft" Version="2016"
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 # SQL environmental variables
 ENV sa_password "Password123"
@@ -10,8 +11,8 @@ COPY . /
 
 WORKDIR /
 
-# Create blog application database and tables
-RUN powershell sqlcmd -S localhost,1433 -i Setup-BlogDatabase.sql
-RUN powershell sqlcmd -S localhost,1433 -i Setup-BlogTables.sql
+CMD ./Initialize-Database.ps1 -sa_password %sa_password% -attach_dbs \"%attach_dbs%\" -Verbose
 
-CMD powershell ./start -sa_password %sa_password% -attach_dbs \"%attach_dbs%\" -Verbose
+# Create blog application database and tables
+RUN sqlcmd -S localhost,1433 -i Setup-BlogDatabase.sql
+RUN sqlcmd -S localhost,1433 -i Setup-BlogTables.sql

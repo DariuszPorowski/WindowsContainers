@@ -1,0 +1,7 @@
+﻿FROM microsoft/windowsservercore
+SHELL ["powershell"]
+RUN Install-WindowsFeature Web-Server
+RUN Install-WindowsFeature Web-Asp-Net45
+COPY index.html C:\\inetpub\\wwwroot
+EXPOSE 80
+CMD ["ping", "-t", "localhost"]

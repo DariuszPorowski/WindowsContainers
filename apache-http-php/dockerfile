@@ -1,8 +1,8 @@
 FROM microsoft/windowsservercore
-LABEL Description="Apache-PHP" Vendor1="Apache Software Foundation" Version1="2.4.23" Vendor2="The PHP Group" Version2="7.0.12"
+LABEL Description="Apache-PHP" Vendor1="Apache Software Foundation" Version1="2.4.23" Vendor2="The PHP Group" Version2="7.1.0"
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Invoke-WebRequest -Method Get -Uri "https://www.apachelounge.com/download/VC14/binaries/httpd-2.4.23-win64-VC14.zip" -OutFile c:\apache.zip ; \
+    Invoke-WebRequest -Method Get -Uri "http://www.apachelounge.com/download/VC14/binaries/httpd-2.4.23-win64-VC14.zip" -OutFile c:\apache.zip ; \
     Expand-Archive -Path c:\apache.zip -DestinationPath c:\ ; \
     Remove-Item c:\apache.zip -Force
 RUN powershell -Command \
@@ -12,7 +12,7 @@ RUN powershell -Command \
     Remove-Item c:\vcredist_x64.exe -Force
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Invoke-WebRequest -Method Get -Uri "http://windows.php.net/downloads/releases/php-7.0.12-Win32-VC14-x64.zip" -OutFile c:\php.zip ; \
+    Invoke-WebRequest -Method Get -Uri "http://windows.php.net/downloads/releases/php-7.1.0-Win32-VC14-x64.zip" -OutFile c:\php.zip ; \
     Expand-Archive -Path c:\php.zip -DestinationPath c:\php ; \
     Remove-Item c:\php.zip -Force
 RUN powershell -Command \
