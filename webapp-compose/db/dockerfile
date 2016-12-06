@@ -11,8 +11,8 @@ COPY . /
 
 WORKDIR /
 
-CMD ./Initialize-Database.ps1 -sa_password %sa_password% -attach_dbs \"%attach_dbs%\" -Verbose
-
 # Create blog application database and tables
 RUN sqlcmd -S localhost,1433 -i Setup-BlogDatabase.sql
 RUN sqlcmd -S localhost,1433 -i Setup-BlogTables.sql
+
+CMD ./Initialize-Database.ps1 -sa_password %sa_password% -attach_dbs \"%attach_dbs%\" -Verbose
