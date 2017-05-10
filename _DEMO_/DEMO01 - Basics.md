@@ -9,38 +9,24 @@ docker run -it microsoft/windowsservercore cmd
 	exit
 docker ps
 docker ps -a
-docker rm 585673044fae
+docker rm <CONTAINER ID>
 docker run -it --name myname microsoft/windowsservercore cmd
+	hostname
+	exit
 docker rm myname
 docker run -d --name iis01 --hostname iis01 -p 80:80 microsoft/iis cmd
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" iis01
+	Invoke-WebRequest <IP Address>
 	"show www internal"
 docker exec -it iis01 cmd
 	del C:\inetpub\wwwroot\iisstart.htm
 	echo "Hello World from Windows Server Container" > C:\inetpub\wwwroot\index.html
 	"show www internal"
 	"show www external"
+	exit
 docker stop iis01
 docker commit iis01 myiis
 docker images
 docker run -d --name iis02 --hostname iis02 -p 80:80 myiis cmd
 	"show www external"
 docker kill iis02
-
-DOCKERFILE
-docker build -t hw .
-docker run hw
-docker build -t iis .
-docker run -d --name iis -p 80:80 iis
-docker attach iis cmd 
-	exit
-docker stop iis
-docker build -t iis-dsc .
-docker run -d --name iis-dsc -p 80:80 iis-dsc
-		"show www external"
-docker build -t apache-http-php .
-docker run -d --name apache-http-php --hostname apache-http-php -p 80:80 apache-http-php
-	"show www external"
-docker-compose build
-docker-compose up
-	"show www external"

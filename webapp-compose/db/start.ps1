@@ -3,11 +3,11 @@
 # The format for attach_dbs
 
 param(
-[Parameter(Mandatory=$false)]
-[string]$sa_password,
+	[Parameter(Mandatory=$false)]
+	[string]$sa_password,
 
-[Parameter(Mandatory=$false)]
-[string]$attach_dbs
+	[Parameter(Mandatory=$false)]
+	[string]$attach_dbs
 )
 
 # start the service

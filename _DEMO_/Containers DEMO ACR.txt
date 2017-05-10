@@ -1,8 +1,0 @@
-docker login daporo-microsoft.azurecr.io -u daporo -p <PASSWORD>
-docker run -it --rm -p 8383:80 iis-my
-docker tag iis-my daporo-microsoft.azurecr.io/samples/iis-my
-docker push daporo-microsoft.azurecr.io/samples/iis-my
-docker images
-docker rmi daporo-microsoft.azurecr.io/samples/iis-my
-docker pull daporo-microsoft.azurecr.io/samples/iis-my
-docker run -it --rm -p 8383:80 daporo-microsoft.azurecr.io/samples/iis-my

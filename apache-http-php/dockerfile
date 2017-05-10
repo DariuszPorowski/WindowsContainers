@@ -1,25 +1,25 @@
 FROM microsoft/windowsservercore
-LABEL Description="Apache-PHP" Vendor1="Apache Software Foundation" Version1="2.4.25" Vendor2="The PHP Group" Version2="7.1.4"
+LABEL Description="Apache-PHP" Vendor1="Apache Software Foundation" Version1="2.4.25" Vendor2="The PHP Group" Version2="7.1.5"
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Invoke-WebRequest -Method Get -Uri "https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x64.exe" -OutFile c:\vcredist_x64.exe ; \
-    Start-Process c:\vcredist_x64.exe -ArgumentList '/quiet' -Wait ; \
-    Remove-Item c:\vcredist_x64.exe -Force
+    Invoke-WebRequest -Method Get -Uri "https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x64.exe" -OutFile C:\vcredist_x64.exe ; \
+    Start-Process C:\vcredist_x64.exe -ArgumentList '/quiet' -Wait ; \
+    Remove-Item C:\vcredist_x64.exe -Force
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Invoke-WebRequest -Method Get -Uri "http://www.apachelounge.com/download/VC14/binaries/httpd-2.4.25-win64-VC14.zip" -OutFile c:\apache.zip ; \
-    Expand-Archive -Path c:\apache.zip -DestinationPath c:\ ; \
-    Remove-Item c:\apache.zip -Force
+    Invoke-WebRequest -Method Get -Uri "https://www.apachelounge.com/download/VC14/binaries/httpd-2.4.25-win64-VC14.zip" -OutFile C:\apache.zip ; \
+    Expand-Archive -Path C:\apache.zip -DestinationPath C:\ ; \
+    Remove-Item C:\apache.zip -Force
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Invoke-WebRequest -Method Get -Uri "http://windows.php.net/downloads/releases/php-7.1.4-Win32-VC14-x64.zip" -OutFile c:\php.zip ; \
-    Expand-Archive -Path c:\php.zip -DestinationPath c:\php ; \
-    Remove-Item c:\php.zip -Force
+    Invoke-WebRequest -Method Get -Uri "http://windows.php.net/downloads/releases/php-7.1.5-Win32-VC14-x64.zip" -OutFile C:\php.zip ; \
+    Expand-Archive -Path C:\php.zip -DestinationPath C:\php ; \
+    Remove-Item C:\php.zip -Force
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Remove-Item c:\Apache24\conf\httpd.conf ; \
-    New-item -Type Directory c:\www -Force ; \
-    Add-Content -Value "'<?php phpinfo() ?>'" -Path c:\www\index.php
+    Remove-Item C:\Apache24\conf\httpd.conf ; \
+    New-item -Type Directory C:\www -Force ; \
+    Add-Content -Value "'<?php phpinfo() ?>'" -Path C:\www\index.php
 ADD httpd.conf /apache24/conf
 WORKDIR /Apache24/bin
 CMD /Apache24/bin/httpd.exe -w

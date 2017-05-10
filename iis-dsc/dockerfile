@@ -2,3 +2,4 @@ FROM microsoft/windowsservercore
 LABEL Description="IIS" Vendor="Microsoft" Version="10"
 ADD iis-dsc.ps1 /windows/temp/iis-dsc.ps1
 RUN powershell.exe -executionpolicy bypass c:\windows\temp\iis-dsc.ps1
+CMD [ "ping", "localhost", "-t" ]

@@ -3,8 +3,8 @@ LABEL Description="SQL Server" Vendor="Microsoft" Version="2016 SP1"
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 # SQL environmental variables
-ENV sa_password "BArdz0TrnUdN3Has1o0"
-ENV attach_dbs "[]"
+ENV sa_password Tr#dne1-Has!o2
+ENV attach_db []
 
 # Copy SQL scripts for setting up blog database and tables
 COPY . /
@@ -16,4 +16,4 @@ RUN New-Item C:\data -Type Directory
 RUN sqlcmd -S localhost,1433 -i Setup-BlogDatabase.sql
 RUN sqlcmd -S localhost,1433 -i Setup-BlogTables.sql
 
-CMD powershell ./start -sa_password %sa_password% -attach_dbs \"%attach_dbs%\" -Verbose
+CMD powershell ./start -sa_password $env:sa_password -attach_dbs $env:attach_dbs -Verbose
